@@ -5,7 +5,6 @@ import { BsFillCaretRightFill } from "react-icons/bs"
 import { FaShareSquare } from "react-icons/fa"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
-
 import { addToCart } from "../../../slices/cartSlice"
 import { ACCOUNT_TYPE } from "../../../utils/constants"
 import { BuyCourse } from "../../../services/operations/studentFeaturesAPI"
@@ -63,7 +62,7 @@ function CourseDetailsCard({ course, setConfirmationModal, handleBuyCourse }) {
           </div>
           <div className="flex flex-col gap-4">
             <button
-              className="cursor-pointer rounded-md bg-yellow-200 px-[20px] py-[8px] font-semibold text-richblack-5"
+              className="cursor-pointer rounded-md  bg-yellow-200  px-[20px] py-[8px] font-semibold text-richblack-5"
               onClick={
                 user && course?.studentsEnrolled.includes(user?._id)
                   ? () => navigate("/dashboard/enrolled-courses")

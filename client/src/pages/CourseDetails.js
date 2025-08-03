@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react"
 import { BiInfoCircle } from "react-icons/bi"
 import { HiOutlineGlobeAlt } from "react-icons/hi"
 import ReactMarkdown from "react-markdown";
+import { toast } from "react-hot-toast"
+import { ACCOUNT_TYPE } from "../utils/constants"
+import { addToCart } from "../slices/cartSlice"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate, useParams } from "react-router-dom"
 import ConfirmationModal from "../components/comman/ConfirmationModal"
@@ -22,14 +25,12 @@ function CourseDetails() {
   const { paymentLoading } = useSelector((state) => state.course)
   const dispatch = useDispatch()
   const navigate = useNavigate()
-
   const { courseId } = useParams()
-
   const [response, setResponse] = useState(null)
   const [confirmationModal, setConfirmationModal] = useState(null)
 
   useEffect(() => {
-    ;(async () => {
+    ; (async () => {
       try {
         const res = await fetchCourseDetails(courseId)
         setResponse(res)
@@ -44,7 +45,7 @@ function CourseDetails() {
     const count = GetAvgRating(response?.data?.courseDetails.ratingAndReviews)
     setAvgReviewCount(count)
   }, [response])
- 
+
   const [isActive, setIsActive] = useState(Array(0))
   const handleActive = (id) => {
     setIsActive(
@@ -88,6 +89,7 @@ function CourseDetails() {
     createdAt,
   } = response.data?.courseDetails
 
+
   const handleBuyCourse = () => {
     if (token) {
       BuyCourse(token, [courseId], user, navigate, dispatch)
@@ -102,6 +104,26 @@ function CourseDetails() {
       btn2Handler: () => setConfirmationModal(null),
     })
   }
+
+  const handleAddToCart = () => {
+    if (user && user?.accountType === ACCOUNT_TYPE.INSTRUCTOR) {
+      toast.error("You are an Instructor. You can't buy a course.")
+      return
+    }
+    if (token) {
+      dispatch(addToCart(response.data?.courseDetails))
+      return
+    }
+    setConfirmationModal({
+      text1: "You are not logged in!",
+      text2: "Please login to add To Cart",
+      btn1Text: "Login",
+      btn2Text: "Cancel",
+      btn1Handler: () => navigate("/login"),
+      btn2Handler: () => setConfirmationModal(null),
+    })
+  }
+
 
   if (paymentLoading) {
     return (
@@ -159,10 +181,10 @@ function CourseDetails() {
               <p className="space-x-3 pb-4 text-3xl font-semibold text-richblack-5">
                 Rs. {price}
               </p>
-              <button className="yellowButton" onClick={handleBuyCourse}>
+              <button className="cursor-pointer rounded-md  bg-yellow-200  px-[20px] py-[8px] font-semibold text-richblack-5" onClick={handleBuyCourse}>
                 Buy Now
               </button>
-              <button className="blackButton">Add to Cart</button>
+              {((!user || !studentsEnrolled.includes(user?._id))) && (<button onClick={handleAddToCart} className="cursor-pointer rounded-md bg-richblack-400 px-[20px] py-[8px] font-semibold text-richblack-5">Add to Cart</button>)}
             </div>
           </div>
           {/* Courses Card */}
@@ -223,8 +245,8 @@ function CourseDetails() {
               <p className="text-[28px] font-semibold">Author</p>
               <div className="flex items-center gap-4 py-4">
                 <div className="flex flex-row justify-center items-center text-3xl bg-red-700 w-16 h-16 rounded-full">
-                      <p>{instructor.firstName.charAt(0).toUpperCase()}</p>
-                      <p>{instructor.lastName.charAt(0).toUpperCase()}</p>
+                  <p>{instructor.firstName.charAt(0).toUpperCase()}</p>
+                  <p>{instructor.lastName.charAt(0).toUpperCase()}</p>
                 </div>
                 <p className="text-lg">{`${instructor.firstName} ${instructor.lastName}`}</p>
               </div>
