@@ -199,10 +199,10 @@ function Navbar() {
               ))}
             </ul>
             {/* Login / Signup / Dashboard */}
-            <div className=" items-center gap-x-4">
+            <div className="flex items-center gap-x-2">
               {token === null && (
                 <Link to="/login">
-                  <button className="rounded-[8px] border border-richblack-700 bg-richblack-800 px-[12px] py-[8px] text-richblack-100">
+                  <button className="rounded-[8px] border border-richblack-700 bg-richblack-800  px-[12px] py-[8px] text-richblack-100">
                     Log in
                   </button>
                 </Link>
