@@ -42,7 +42,7 @@ const Dashboard = () => {
 
             <div className={`h-[calc(100vh-3.5rem)] w-screen overflow-auto ${isVisible ? "hidden" : "block"
                 }`}>
-                <div className={`mx-auto w-8/12 max-w-[900px] py-10`} >
+                <div className={`mx-auto sm:w-8/12 w-11/12 max-w-[900px] py-10`} >
                     <Outlet />
                 </div>
             </div>
