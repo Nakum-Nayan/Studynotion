@@ -140,6 +140,7 @@ function Navbar() {
         {open && (
           <div 
           ref={ref}
+          onClick={() => setOpen(false)} 
           className="absolute top-14 left-0 z-50 w-full bg-richblack-800 p-4 md:hidden">
             <ul className="flex flex-col gap-x-6 text-richblack-25">
               {NavbarLinks.map((link, index) => (
