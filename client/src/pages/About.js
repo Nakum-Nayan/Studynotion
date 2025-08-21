@@ -125,7 +125,7 @@ const About = () => {
                             </p>
                         </div>
                         <div className="flex flex-row space-x-4 mt-4 md:text-5xl text-3xl">
-                            <a href="#"> <span><CiLinkedin /></span></a>
+                            <a href="https://www.linkedin.com/in/nayan-nakum-10674b374"> <span><CiLinkedin /></span></a>
                             <a href="https://x.com/NayanAhir94?t=zCiRU5VLANqWVYsZ0DkWYg&s=09"> <span><FaTwitter /></span></a>
                             <a href="https://www.instagram.com/nayan._____7?igsh=MXJxNWphb3EwaXduMA=="> <span><FaInstagram /></span></a>
                         </div>

@@ -26,7 +26,7 @@ const Footer  = () => {
                             <li>Affiliates</li>
                     </ul>
                     <div className="flex flex-row space-x-4 mt-4 text-3xl">
-                        <a href="#"> <span><CiLinkedin /></span></a>
+                        <a href="https://www.linkedin.com/in/nayan-nakum-10674b374"> <span><CiLinkedin /></span></a>
                         <a href="https://x.com/NayanAhir94?t=zCiRU5VLANqWVYsZ0DkWYg&s=09"> <span><FaTwitter /></span></a>
                         <a href="https://www.instagram.com/nayan._____7?igsh=MXJxNWphb3EwaXduMA=="> <span><FaInstagram /></span></a>
                     </div>
@@ -40,7 +40,7 @@ const Footer  = () => {
                         </div>
                         <div className="flex gap-3 justify-centerus items-center text-lg ">
                             <MdOutlineEmail />
-                            <li>nakumnayan2308@gmail.com</li>
+                            <li>nayannakum08@gmail.com</li>
                        </div>
                     </ul>
                     <h2 className="text-white text-lg mt-6 font-semibold">Community</h2>
