@@ -15,8 +15,14 @@ exports.sendOTP = async (req,res)=>{
     try{
 
         const {email} = req.body;
+<<<<<<< HEAD
         const checkUserPresent = await User.findOne({email}); 
         
+=======
+ 
+        const checkUserPresent = await User.findOne({email}); 
+
+>>>>>>> ef5255c6fb38ab9777279c88fd0bbdff37333c92
         if(checkUserPresent){
             return res.status(401).json({
                 success:false,
