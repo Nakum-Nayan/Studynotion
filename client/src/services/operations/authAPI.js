@@ -23,10 +23,6 @@ export function sendOtp(email,navigate) {
                     email,
                     checkUserPresent: true,
                 });
-<<<<<<< HEAD
-=======
-
->>>>>>> ef5255c6fb38ab9777279c88fd0bbdff37333c92
                 if (!response.data.success) {
                     throw new Error(response.data.message);
                 }
