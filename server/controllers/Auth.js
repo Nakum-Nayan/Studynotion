@@ -49,7 +49,7 @@ exports.sendOTP = async (req,res)=>{
     catch(error){
         console.log("error to OTP Generate : ",error)
     }
-}
+}   
 
 exports.signup = async (req,res) => {
    try{
