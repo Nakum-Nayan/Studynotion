@@ -373,7 +373,7 @@ export const createCategory = async (token,name) =>{
         {name},
         {  Authorisation: `Bearer ${token}`}
       )
-      // console.log("create a category",response)
+      console.log("create a category",response)
   }
   catch(error){
     console.log("Error",error)

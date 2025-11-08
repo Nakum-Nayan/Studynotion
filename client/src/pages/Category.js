@@ -25,7 +25,7 @@ function Category() {
             let response =  await apiConnector("POST",categories.CREATE_CATEGORIES_API,{
                 token,name,description
             })
-            // console.log("data",response)
+            console.log("data",response)
         }
         catch(error){
             console.log("category is not create",error)
