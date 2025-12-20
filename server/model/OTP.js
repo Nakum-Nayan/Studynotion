@@ -22,18 +22,9 @@ async function sendVerificationEmail(email,otp){
     try{
         console.log("email :::::::",email,"otp::::::::::",otp);
         let mailResponse = await mailSender(email,"Verification Email",emailTemplate(otp));
-
-
-        if (!mailResponse) {
-            throw new Error("Mail sender returned no response");
-        }
-
-
         console.log("Email Send Successfully",mailResponse.response);
-        return true;
     }catch(error){                             
         console.log("error occured while sending email",error);
-        return false;
     }
 }
 
