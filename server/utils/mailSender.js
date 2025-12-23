@@ -8,14 +8,6 @@ const mailSender = async (email,title,body) =>{
                 user:process.env.MAIL_USER,
                 pass:process.env.MAIL_PASS
             },
-            secure: false,
-            port: 587,
-            logger: true,
-            debug: true,
-            tls: {
-                rejectUnauthorized: false
-            },
-            connectionTimeout: 20000,
         })
 
         let info = await transporter.sendMail({
