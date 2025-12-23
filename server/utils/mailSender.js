@@ -9,7 +9,7 @@ const mailSender = async (email,title,body) =>{
                 pass:process.env.MAIL_PASS
             },
             secure: true,
-            port: 465,
+            port: 465
         })
 
         let info = await transporter.sendMail({
