@@ -1,7 +1,7 @@
 const User = require("../model/User");
 const OTP = require("../model/OTP");
 const otpGenerator = require("otp-generator");
-const bcrypt = require("bcrypt")
+const bcrypt = require("bcryptjs")
 const Profile = require("../model/Profile")
 const mailSender = require("../utils/mailSender")
 const { passwordUpdated } = require("../mail/templates/passwordUpdate")
