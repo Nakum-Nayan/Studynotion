@@ -98,7 +98,7 @@ const About = () => {
                 </div>
             </section>
 
-            <div className="flex gap-4 m-10 justify-center items-center sm:flex-row flex-col">
+            {/* <div className="flex gap-4 m-10 justify-center items-center sm:flex-row flex-col">
                 <div className="w-[50%] flex justify-end">
                     <img
                         src={profile}
@@ -131,8 +131,7 @@ const About = () => {
                         </div>
                     </div>
                 </div>
-            </div>
-
+            </div> */}
             <Footer />
         </div>
     )

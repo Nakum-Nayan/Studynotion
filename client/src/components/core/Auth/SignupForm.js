@@ -201,7 +201,7 @@ const SignupForm = () => {
           </p>
           <input
             type="text"
-            placeholder="Enter your email address"
+            placeholder="Enter your Secret key"
             value={FormData.secretkey}
             onChange={changeHandler}
             className="bg-richblack-800 rounded-[0.75rem] w-full p-[12px] text-richblack-5"

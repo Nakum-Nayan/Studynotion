@@ -21,7 +21,6 @@ exports.auth = async (req,res,next) => {
         }
         catch(error){
             console.log("error :",error)
-            console.log("token :",token)
             return res.status(500).json({
                 success : false,
                 massage :'Token is Not a Valid'
